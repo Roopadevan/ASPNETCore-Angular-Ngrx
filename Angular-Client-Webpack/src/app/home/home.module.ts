@@ -1,12 +1,14 @@
-import { HomeComponent } from './components/home/home.component';
-import { HomeRoutes } from './home.routes';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { EMealFooterComponent } from './components/footer/eMeal-footer.component';
 import { SharedModule } from '../shared/shared.module';
+import { HomeComponent } from './components/home/home.component';
+import { RandomMealComponent } from './components/randomMeal/randomMeal.component';
+import { SneakPeekComponent } from './components/sneakPeek/sneekPeek.component';
+import { HomeRoutes } from './home.routes';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RandomMealComponent} from './components/randomMeal/randomMeal.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
@@ -21,7 +23,9 @@ import {RandomMealComponent} from './components/randomMeal/randomMeal.component'
     declarations: [
         // Components & Directives
         HomeComponent,
-        RandomMealComponent
+        RandomMealComponent,
+        SneakPeekComponent,
+        EMealFooterComponent
     ],
 
     providers: [

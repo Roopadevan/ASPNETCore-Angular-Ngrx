@@ -1,19 +1,19 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from './app.component';
+import { AppRoutes } from './app.routes';
+import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
-import { SharedModule } from './shared/shared.module';
 import { Configuration } from './shared/configuration/app.configuration';
+import { SharedModule } from './shared/shared.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { RouterModule, PreloadAllModules } from '@angular/router';
-import { AppRoutes } from './app.routes';
-import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
-import { CoreModule } from './core/core.module';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { ToasterModule } from 'angular2-toaster/angular2-toaster';
 import { NgxElectronModule } from 'ngx-electron';
 
 @NgModule({
     imports: [
+        BrowserAnimationsModule,
         BrowserModule,
         ToasterModule,
         RouterModule.forRoot(AppRoutes, { useHash: true, preloadingStrategy: PreloadAllModules }),
@@ -26,10 +26,6 @@ import { NgxElectronModule } from 'ngx-electron';
 
     declarations: [
         AppComponent
-    ],
-
-    providers: [
-        Configuration
     ],
 
     bootstrap: [AppComponent]

@@ -1,12 +1,10 @@
+import './home.component.css';
+import { AbstractNotificationService, MessageType } from '../../../core/services/notification.service';
+import { PlatformInformationProvider } from '../../../core/services/platformInformation.provider';
 import { FoodDataService } from './../../../core/data-services/food-data.service';
 import { FoodItem } from './../../../shared/models/foodItem.model';
-import { Component, OnInit, NgZone } from '@angular/core';
-import { ToasterService } from 'angular2-toaster';
-import { AbstractNotificationService, MessageType } from '../../../core/services/notification.service';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { CpuValueService } from '../../../core/services/cpuValue.service';
-import { PlatformInformationProvider } from '../../../core/services/platformInformation.provider';
-import './home.component.css';
 
 @Component({
     selector: 'home-component',
@@ -18,19 +16,10 @@ export class HomeComponent implements OnInit {
     randomFood: FoodItem[] = [];
     allFood: Observable<FoodItem[]>;
     isWorking = false;
-    percentage: any;
 
     constructor(private foodDataService: FoodDataService,
         private notificationService: AbstractNotificationService,
-        private cpuValueService: CpuValueService,
-        private ngZone: NgZone,
         public platformInformationProvider: PlatformInformationProvider) {
-
-        cpuValueService.onNewCpuValue.subscribe((cpuValue: number) => {
-            ngZone.run(() => {
-                this.percentage = cpuValue;
-            });
-        });
     }
 
     ngOnInit() {
@@ -51,10 +40,6 @@ export class HomeComponent implements OnInit {
         this.foodDataService
             .GetRandomMeal()
             .subscribe((response: FoodItem[]) => {
-
-                // Starter
-                // Main
-                // Dessert
 
                 if (!response) {
                     this.notificationService.showNotification(MessageType.Info, 'Oh Snap...', 'No food found...');
