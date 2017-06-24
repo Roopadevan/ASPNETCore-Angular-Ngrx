@@ -1,6 +1,5 @@
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { Configuration } from './configuration/app.configuration';
-import { AuthGuard } from './guards/authentication.guard';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -19,8 +18,7 @@ import { RouterModule } from '@angular/router';
 
     providers: [
         // Services
-        Configuration,
-        AuthGuard
+        Configuration
     ],
 
     exports: [

@@ -1,5 +1,3 @@
-import { AuthenticationService } from '../../../core/services/authentication.service';
-import { CurrentUserService } from '../../../core/services/currentUser.service';
 import { Configuration } from './../../configuration/app.configuration';
 import { Component } from '@angular/core';
 
@@ -10,15 +8,7 @@ import { Component } from '@angular/core';
 
 export class NavigationComponent {
 
-    constructor(
-        public configuration: Configuration,
-        public currentUserService: CurrentUserService,
-        private authenticationService: AuthenticationService) { }
-
-    logout($event: any) {
-        $event.preventDefault();
-        this.authenticationService.logoutUser();
-    }
+    constructor(public configuration: Configuration) { }
 
     doNothing($event: any) {
         $event.preventDefault();

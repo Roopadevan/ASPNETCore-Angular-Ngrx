@@ -1,11 +1,10 @@
-import { CurrentUserService } from '../services/currentUser.service';
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class HttpWrapperService {
-    constructor(private http: Http, private currentUserService: CurrentUserService) {
+    constructor(private http: Http) {
 
     }
 
@@ -36,16 +35,11 @@ export class HttpWrapperService {
     }
 
     private prepareOptions(options: RequestOptionsArgs): RequestOptionsArgs {
-        let token: string = this.currentUserService.token;
 
         options = options || {};
 
         if (!options.headers) {
             options.headers = new Headers();
-        }
-
-        if (token) {
-            options.headers.append('Authorization', 'Bearer ' + token);
         }
 
         options.headers.append('Content-Type', 'application/json');

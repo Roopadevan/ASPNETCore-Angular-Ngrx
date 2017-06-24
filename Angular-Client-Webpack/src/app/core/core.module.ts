@@ -1,8 +1,6 @@
 import { FoodDataService } from './data-services/food-data.service';
-import { AuthenticationService } from './services/authentication.service';
 import { AbstractCameraService, cameraFactory } from './services/camera.service';
 import { CpuValueService } from './services/cpuValue.service';
-import { CurrentUserService } from './services/currentUser.service';
 import { HttpWrapperService } from './services/httpWrapper.service';
 import { AbstractNotificationService, notificationFactory } from './services/notification.service';
 import { PlatformInformationProvider } from './services/platformInformation.provider';
@@ -28,10 +26,8 @@ export class CoreModule {
             providers: [
                 FoodDataService,
                 Sorter,
-                AuthenticationService,
                 HttpWrapperService,
                 StorageService,
-                CurrentUserService,
                 PlatformInformationProvider,
                 CpuValueService,
                 {
