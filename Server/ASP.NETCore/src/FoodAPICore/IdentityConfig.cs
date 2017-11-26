@@ -36,24 +36,36 @@ namespace FoodAPICore
             // Clients credentials.
             return new List<Client>
             {
-                // http://docs.identityserver.io/en/dev/reference/client.html.
                 new Client
                 {
+                    ClientName = "AngularFoodClient",
                     ClientId = "AngularFoodClient",
-                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword, // Resource Owner Password Credential grant.
+                    AccessTokenType = AccessTokenType.Reference,
+                    AccessTokenLifetime = 330,// 330 seconds, default 60 minutes
+	                IdentityTokenLifetime = 20,
+                    AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
-                    RequireClientSecret = false, // This client does not need a secret to request tokens from the token endpoint.
+                    RedirectUris = new List<string>
+                    {
+                        "http://localhost:4200"
 
-                    AccessTokenLifetime = 900, // Lifetime of access token in seconds.
-
-                    AllowedScopes = {
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                        "http://localhost:4200/unauthorized",
+                        "http://localhost:4200"
+                    },
+                    AllowedCorsOrigins = new List<string>
+                    {
+                        "http://localhost:4200"
+                    },
+                     AllowedScopes = {
                         IdentityServerConstants.StandardScopes.OpenId, // For UserInfo endpoint.
                         IdentityServerConstants.StandardScopes.Profile,
                         "roles",
                         "WebAPI"
                     },
-                    AllowOfflineAccess = true // For refresh token.
-                }
+                },
             };
 
         }
