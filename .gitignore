@@ -7,3 +7,6 @@ server/ASP.NETCore/src/FoodAPICore/Properties/PublishProfiles/
 /client/src/app/**/*.js
 /client/src/app/**/*.js.map
 /server/ASP.NETCore/src/FoodAPICore/obj
+/Server/ASP.NETCore/FoodAPICore.STS/obj
+/Server/ASP.NETCore/FoodAPICore.STS/bin
+/Server/ASP.NETCore/src/FoodAPICore.STS/obj
