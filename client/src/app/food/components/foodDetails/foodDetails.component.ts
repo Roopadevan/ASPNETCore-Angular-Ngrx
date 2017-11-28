@@ -19,6 +19,6 @@ export class FoodDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new FoodActions.LoadSingleFoodAction(this.route.snapshot.paramMap.get('foodId')));
+    this.store.dispatch(new FoodActions.LoadSingleFoodAction(this.route.snapshot.paramMap.get('foodId') || ''));
   }
 }

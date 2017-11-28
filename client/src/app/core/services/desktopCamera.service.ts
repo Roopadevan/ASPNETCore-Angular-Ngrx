@@ -37,7 +37,10 @@ export class DesktopCameraService implements AbstractCameraService {
 
                         setTimeout(() => {
                             const context = canvasElement.getContext('2d');
-                            context.drawImage(videoElement, 0, 0, videoElement.videoWidth, videoElement.videoHeight);
+
+                            if (context) {
+                                context.drawImage(videoElement, 0, 0, videoElement.videoWidth, videoElement.videoHeight);
+                            }
 
                             const url = canvasElement.toDataURL('image/png');
 

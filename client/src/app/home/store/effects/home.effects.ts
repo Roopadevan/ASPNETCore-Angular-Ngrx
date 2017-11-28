@@ -22,8 +22,8 @@ export class HomeEffects {
                 ))
         }));
 
-    @Effect() loadRandomMeal$ = this.actions$.ofType(HomeActions.LOAD_RANDOM_MEAL).pipe(
-        switchMap((action: HomeActions.LoadRandomMealAction) => {
+    @Effect() loadRandomMeal$ = this.actions$.ofType<HomeActions.LoadRandomMealAction>(HomeActions.LOAD_RANDOM_MEAL).pipe(
+        switchMap(() => {
             return this.foodDataService.getRandomMeal().pipe(
                 map((data: any) => {
                     return new HomeActions.LoadRandomMealSuccessAction(data.value);
@@ -33,7 +33,7 @@ export class HomeEffects {
         }));
 
     @Effect({ dispatch: false }) homeError$ = this.actions$
-        .ofType(HomeActions.HOME_ERROR)
+        .ofType<HomeErrorAction>(HomeActions.HOME_ERROR)
         .pipe(tap((action: HomeErrorAction) => {
             this.notificationService.showNotification(MessageType.Error, 'Home', action.error.message)
         }));

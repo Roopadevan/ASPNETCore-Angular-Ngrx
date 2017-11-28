@@ -4,8 +4,4 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class CpuValueServiceMock {
 
     public onNewCpuValue = new EventEmitter<string>();
-
-    private registerCpuEvent() {
-        console.log();
-    }
 }

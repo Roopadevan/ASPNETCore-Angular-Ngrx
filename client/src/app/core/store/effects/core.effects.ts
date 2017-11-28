@@ -12,7 +12,7 @@ import * as CoreActions from '../actions/core.actions';
 export class CoreEffects {
 
   @Effect() login$ = this.actions$
-    .ofType(CoreActions.LOGIN)
+    .ofType<CoreActions.LoginAction>(CoreActions.LOGIN)
     .pipe(
     switchMap((action: CoreActions.LoginAction) => {
       return this.authenticationService
@@ -26,17 +26,17 @@ export class CoreEffects {
 
 
   @Effect({ dispatch: false }) loginSuccess$ = this.actions$
-    .ofType(CoreActions.LOGIN_SUCCESS)
+    .ofType<CoreActions.LogoutAction>(CoreActions.LOGIN_SUCCESS)
     .pipe(
-      tap((action: CoreActions.LogoutAction) => {
+      tap(() => {
         this.router.navigate(['/home']);
       })
     );
 
   @Effect({ dispatch: false }) logout$ = this.actions$
-    .ofType(CoreActions.LOGOUT)
+    .ofType<CoreActions.LogoutAction>(CoreActions.LOGOUT)
     .pipe(
-      tap((action: CoreActions.LogoutAction) => {
+      tap(() => {
         this.authenticationService.logoutUser();
         this.router.navigate(['/home']);
       })

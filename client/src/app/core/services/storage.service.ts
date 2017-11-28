@@ -32,6 +32,6 @@ export class StorageService {
     };
 
     getItem(key: string): any {
-        return JSON.parse(localStorage.getItem(`${APP_PREFIX}${key}`));
+        return JSON.parse(localStorage.getItem(`${APP_PREFIX}${key}`) || '');
     };
 }

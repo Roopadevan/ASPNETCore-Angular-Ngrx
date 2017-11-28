@@ -21,7 +21,7 @@ export function foodItemsHomeReducer(state = initialState, action: Action): Home
   switch (action.type) {
 
     case HomeActions.LOAD_FOOD:
-      const loadFoodAction = <HomeActions.LoadFoodAction>action;
+      // const loadFoodAction = <HomeActions.LoadFoodAction>action;
       return Object.assign({}, state, {
         randomMeal: state.randomMeal,
         foodItems: state.foodItems,
@@ -39,7 +39,7 @@ export function foodItemsHomeReducer(state = initialState, action: Action): Home
       });
 
     case HomeActions.LOAD_RANDOM_MEAL:
-      const loadRandomMealAction = <HomeActions.LoadRandomMealAction>action;
+      // const loadRandomMealAction = <HomeActions.LoadRandomMealAction>action;
       return Object.assign({}, state, {
         randomMeal: state.randomMeal,
         foodItems: state.foodItems,

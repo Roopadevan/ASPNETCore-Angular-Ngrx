@@ -6,7 +6,7 @@ import * as FoodActions from '../actions/food.actions';
 export interface FoodState {
   foodItems: FoodItem[],
   selectedItem: FoodItem,
-  detailedItem: FoodItem
+  detailedItem: FoodItem | null
 };
 
 export const initialState: FoodState = {
@@ -62,7 +62,7 @@ export function selectedItemReducer(state = initialState, action: any): FoodStat
   switch (action.type) {
 
     case FoodActions.LOAD_FOOD:
-      const loadFoodAction = <FoodActions.LoadFoodAction>action;
+      // const loadFoodAction = <FoodActions.LoadFoodAction>action;
 
       return Object.assign({}, state, {
         foodItems: state.foodItems,

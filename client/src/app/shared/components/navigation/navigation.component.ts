@@ -1,10 +1,10 @@
-import { Observable } from 'rxjs/Observable';
-import { CoreState } from '../../../core/store/reducer/core.reducer';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
 
 import { CurrentUserService } from '../../../core/services/currentUser.service';
 import * as CoreActions from '../../../core/store/actions/core.actions';
+import { CoreState } from '../../../core/store/reducer/core.reducer';
 import { Configuration } from './../../configuration/app.configuration';
 
 @Component({

@@ -12,7 +12,7 @@ export class FoodDataService {
 
     public actionUrl: string;
 
-    constructor(private http: HttpWrapperService, private configuration: Configuration) {
+    constructor(private http: HttpWrapperService, configuration: Configuration) {
         this.actionUrl = configuration.server + configuration.apiUrl + 'foods/';
     }
 

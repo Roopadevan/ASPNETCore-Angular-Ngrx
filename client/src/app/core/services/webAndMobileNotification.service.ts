@@ -10,6 +10,7 @@ export class WebAndMobileNotificationService implements AbstractNotificationServ
 
     showNotification(type: MessageType, title: string, message: string, icon?: string): void {
 
+        console.log(icon);
         switch (+type) {
             case MessageType.Error:
                 this.toasterService.pop('error', title, message);
