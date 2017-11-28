@@ -24,6 +24,7 @@ export class DesktopNotificationService implements AbstractNotificationService {
 
         Notification.requestPermission().then(() => {
             const myNotification = new Notification(titleToShow, messageBody);
+            console.log(myNotification);
         });
     }
 }

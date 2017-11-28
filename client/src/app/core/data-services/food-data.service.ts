@@ -10,7 +10,7 @@ import { HttpWrapperService } from '../services/httpWrapper.service';
 @Injectable()
 export class FoodDataService {
 
-    public actionUrl: string;
+    actionUrl: string;
 
     constructor(private http: HttpWrapperService, configuration: Configuration) {
         this.actionUrl = configuration.server + configuration.apiUrl + 'foods/';
