@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 
@@ -15,7 +14,6 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient,
         private currentUserService: CurrentUserService,
-        private router: Router,
         private configuration: Configuration) {
 
     }
@@ -45,7 +43,7 @@ export class AuthenticationService {
     }
 
     logoutUser() {
-        this.currentUserService.token = null;
-        this.currentUserService.username = null;
+        this.currentUserService.token = '';
+        this.currentUserService.username = '';
     }
 }

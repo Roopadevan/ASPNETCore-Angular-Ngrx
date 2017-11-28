@@ -1,8 +1,8 @@
-import { tap } from 'rxjs/operators/tap';
 import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, switchMap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators/tap';
 
 import { FoodDataService } from '../../../core/data-services/food-data.service';
 import { AbstractNotificationService, MessageType } from '../../../core/services/notification.service';
@@ -13,7 +13,7 @@ import { FoodErrorAction } from '../actions/food.actions';
 @Injectable()
 export class FoodEffects {
 
-  @Effect() addFood$ = this.actions$.ofType(FoodActions.ADD_FOOD).pipe(
+  @Effect() addFood$ = this.actions$.ofType<FoodActions.AddFoodAction>(FoodActions.ADD_FOOD).pipe(
     switchMap((action: FoodActions.AddFoodAction) => {
       return this.foodDataService.addFood(action.foodItem).pipe(
         map((data: FoodItem) => {
@@ -36,10 +36,10 @@ export class FoodEffects {
     }));
 
 
-  @Effect() deleteFood$ = this.actions$.ofType(FoodActions.DELETE_FOOD).pipe(
+  @Effect() deleteFood$ = this.actions$.ofType<FoodActions.DeleteFoodAction>(FoodActions.DELETE_FOOD).pipe(
     switchMap((action: FoodActions.DeleteFoodAction) => {
       return this.foodDataService.deleteFood(action.foodItem).pipe(
-        map((data: any) => {
+        map(() => {
           this.notificationService.showNotification(MessageType.Success, 'Food', 'Food deleted!');
           return new FoodActions.DeleteFoodSuccessAction(action.foodItem);
         }),
@@ -48,7 +48,7 @@ export class FoodEffects {
     }));
 
 
-  @Effect() updateFood$ = this.actions$.ofType(FoodActions.UPDATE_FOOD).pipe(
+  @Effect() updateFood$ = this.actions$.ofType<FoodActions.UpdateFoodAction>(FoodActions.UPDATE_FOOD).pipe(
     switchMap((action: FoodActions.UpdateFoodAction) => {
       return this.foodDataService.updateFood(action.foodItem.id, action.foodItem).pipe(
         map((data: any) => {
@@ -60,7 +60,7 @@ export class FoodEffects {
     }));
 
 
-  @Effect() getSingleFood$ = this.actions$.ofType(FoodActions.SELECT_FOOD).pipe(
+  @Effect() getSingleFood$ = this.actions$.ofType<FoodActions.SelectFoodAction>(FoodActions.SELECT_FOOD).pipe(
     switchMap((action: FoodActions.SelectFoodAction) => {
       return this.foodDataService.getSingleFood(action.foodItem.id).pipe(
         map((data: any) => {
@@ -71,7 +71,7 @@ export class FoodEffects {
     }));
 
 
-  @Effect() loadSingleFood$ = this.actions$.ofType(FoodActions.LOAD_SINGLE_FOOD).pipe(
+  @Effect() loadSingleFood$ = this.actions$.ofType<FoodActions.LoadSingleFoodAction>(FoodActions.LOAD_SINGLE_FOOD).pipe(
     switchMap((action: FoodActions.LoadSingleFoodAction) => {
       return this.foodDataService.getSingleFood(action.id).pipe(
         map((data: any) => {
@@ -83,7 +83,7 @@ export class FoodEffects {
 
 
   @Effect({ dispatch: false }) foodError = this.actions$
-    .ofType(FoodActions.FOOD_ERROR)
+    .ofType<FoodErrorAction>(FoodActions.FOOD_ERROR)
     .pipe(tap((action: FoodErrorAction) =>
       this.notificationService.showNotification(MessageType.Error, 'Food', action.error.statusText)
     ));

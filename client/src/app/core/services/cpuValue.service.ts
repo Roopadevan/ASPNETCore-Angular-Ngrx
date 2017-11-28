@@ -10,8 +10,7 @@ export class CpuValueService {
 
     constructor(
         private electronService: ElectronService,
-        private ngZone: NgZone,
-        private platformInformationProvider: PlatformInformationProvider) {
+        platformInformationProvider: PlatformInformationProvider) {
 
         if (platformInformationProvider.isElectron) {
             this.registerCpuEvent();
@@ -21,6 +20,7 @@ export class CpuValueService {
     private registerCpuEvent() {
         if (this.electronService.ipcRenderer) {
             this.electronService.ipcRenderer.on('newCpuValue', (event: any, data: any) => {
+                console.log(event);
                 this.onNewCpuValue.emit(data);
             });
         }

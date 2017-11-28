@@ -18,9 +18,9 @@ describe('IsNumber', () => {
 
     it('validator should be valid when number is passed', () => {
 
-        let formcontrol = new FormControl();
+        const formcontrol = new FormControl();
         formcontrol.setValue(123);
-        let result = isNumberValidator.validate(formcontrol);
+        const result = isNumberValidator.validate(formcontrol);
 
         expect(result).toBeNull();
 
@@ -28,9 +28,9 @@ describe('IsNumber', () => {
 
     it('validator should be invalid when character is passed', () => {
 
-        let formcontrol = new FormControl();
+        const formcontrol = new FormControl();
         formcontrol.setValue('s');
-        let result = isNumberValidator.validate(formcontrol);
+        const result = isNumberValidator.validate(formcontrol);
 
         expect(result).not.toBeNull();
         expect(result['isNumber']).not.toBeNull();

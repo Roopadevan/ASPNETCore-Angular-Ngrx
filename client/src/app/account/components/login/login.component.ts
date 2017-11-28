@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
-import * as CoreActions from '../../../core/store/actions/core.actions';
 import { CoreState } from '../../../core/store/reducer/core.reducer';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 

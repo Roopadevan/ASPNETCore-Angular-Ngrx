@@ -12,7 +12,7 @@ export class AuthenticationServiceStub {
 
     }
 
-    loginUser(username: string, password: string): Observable<Token> {
+    loginUser(): Observable<Token> {
 
         return Observable.create((observer: Observer<Token>) => {
             observer.next(new Token());

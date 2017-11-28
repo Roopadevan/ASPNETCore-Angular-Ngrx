@@ -15,7 +15,7 @@ export function coreReducer(state = initialState, action: Action): CoreState {
   switch (action.type) {
 
     case CoreActions.LOGIN:
-      const loginAction = <CoreActions.LoginAction>action;
+      // const loginAction = <CoreActions.LoginAction>action;
       return Object.assign({}, state, {
         errorMessage: '',
         isAuthenticated: true,
@@ -23,7 +23,7 @@ export function coreReducer(state = initialState, action: Action): CoreState {
       });
 
     case CoreActions.LOGIN_SUCCESS:
-      const loginSuccessAction = <CoreActions.LoginSuccessAction>action;
+      // const loginSuccessAction = <CoreActions.LoginSuccessAction>action;
       return Object.assign({}, state, {
         errorMessage: '',
         isAuthenticated: true,
