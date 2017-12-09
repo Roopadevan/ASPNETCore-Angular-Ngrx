@@ -5,7 +5,7 @@ import { ToasterConfig } from 'angular2-toaster/angular2-toaster';
 export class Configuration {
     // server = environment.production ? 'http://foodapi4demo.azurewebsites.net/' : 'http://localhost:5000/';
     // server = 'http://foodapi4demo.azurewebsites.net/';
-    server = 'http://localhost:5000/';
+    server = 'https://localhost:44331/';
     apiUrl = 'api/';
     title = 'eMeal';
 
@@ -13,7 +13,7 @@ export class Configuration {
         CLIENT_ID: 'AngularFoodClient',
         GRANT_TYPE: 'password',
         SCOPE: 'WebAPI'
-    }
+    };
 
     toasterConfig: ToasterConfig = new ToasterConfig({
         positionClass: 'toast-bottom-right'

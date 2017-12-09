@@ -1,5 +1,5 @@
-import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Component } from '@angular/core';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 import { Configuration } from './shared/configuration/app.configuration';
 
@@ -7,13 +7,15 @@ import { Configuration } from './shared/configuration/app.configuration';
     selector: 'foodChooser-app',
     templateUrl: 'app.component.html'
 })
-
 export class AppComponent {
-
     title: string;
 
-    constructor(public oidcSecurityService: OidcSecurityService, public configuration: Configuration) {
+    constructor(
+        public oidcSecurityService: OidcSecurityService,
+        public configuration: Configuration
+    ) {
         this.title = configuration.title;
+
         if (this.oidcSecurityService.moduleSetup) {
             this.doCallbackLogicIfRequired();
         } else {
@@ -24,7 +26,8 @@ export class AppComponent {
     }
 
     private doCallbackLogicIfRequired() {
-        if (window.location.hash) { // <-- add gartenhaken here, too
+        if (window.location.hash) {
+            // <-- add gartenhaken here, too
             this.oidcSecurityService.authorizedCallback();
         }
     }

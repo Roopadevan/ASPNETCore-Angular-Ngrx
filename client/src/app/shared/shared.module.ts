@@ -24,10 +24,6 @@ import { AuthGuard } from './guards/authentication.guard';
         AuthGuard
     ],
 
-    exports: [
-        NavigationComponent
-    ]
+    exports: [NavigationComponent]
 })
-
-export class SharedModule { }
-
+export class SharedModule {}
