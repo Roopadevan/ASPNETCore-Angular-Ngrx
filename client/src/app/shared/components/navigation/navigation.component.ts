@@ -6,20 +6,24 @@ import { CurrentUserService } from '../../../core/services/currentUser.service';
 import * as CoreActions from '../../../core/store/actions/core.actions';
 import { CoreState } from '../../../core/store/reducer/core.reducer';
 import { Configuration } from './../../configuration/app.configuration';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
     selector: 'app-navigation',
     templateUrl: 'navigation.component.html'
 })
-
 export class NavigationComponent {
     coreState$: Observable<CoreState>;
 
     constructor(
         public configuration: Configuration,
         public currentUserService: CurrentUserService,
-        private store: Store<any>) {
-        this.coreState$ = this.store.select<CoreState>(state => state.core.coreReducer);
+        private store: Store<any>,
+        private oidcSecurityService: OidcSecurityService
+    ) {
+        this.coreState$ = this.store.select<CoreState>(
+            state => state.core.coreReducer
+        );
     }
 
     logout($event: Event) {
@@ -29,5 +33,9 @@ export class NavigationComponent {
 
     doNothing($event: Event) {
         $event.preventDefault();
+    }
+
+    login($event: Event) {
+        this.oidcSecurityService.authorize();
     }
 }
