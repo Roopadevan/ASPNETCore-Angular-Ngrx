@@ -10,3 +10,6 @@ server/ASP.NETCore/src/FoodAPICore/Properties/PublishProfiles/
 /Server/ASP.NETCore/FoodAPICore.STS/obj
 /Server/ASP.NETCore/FoodAPICore.STS/bin
 /Server/ASP.NETCore/src/FoodAPICore.STS/obj
+/Server/ASP.NETCore/src/FoodAPICore.STS/bin/
+/Server/ASP.NETCore/src/FoodAPICore.STS/obj
+/Server/ASP.NETCore/src/FoodAPICore.STS/wwwroot/
