@@ -23,9 +23,6 @@ import { LoginComponent } from './components/login/login.component';
         // Services
     ],
 
-    exports: [
-
-    ]
+    exports: []
 })
-
-export class AccountModule { }
+export class AccountModule {}

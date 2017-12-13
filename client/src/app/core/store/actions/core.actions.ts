@@ -9,20 +9,20 @@ export const LOGOUT = 'LOGOUT';
 
 export class LoginAction implements Action {
     readonly type = LOGIN;
-    constructor(public username: string, public password: string) { }
+    constructor(public username: string, public password: string) {}
 }
 
 export class LoginSuccessAction implements Action {
     readonly type = LOGIN_SUCCESS;
-    constructor(public token: Token) { }
+    constructor(public token: Token) {}
 }
 
 export class LoginFailedAction implements Action {
     readonly type = LOGIN_FAILED;
-    constructor(public errorMessage: any) { }
+    constructor(public errorMessage: any) {}
 }
 
 export class LogoutAction implements Action {
     readonly type = LOGOUT;
-    constructor() { }
+    constructor() {}
 }

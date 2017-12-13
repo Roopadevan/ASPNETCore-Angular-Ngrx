@@ -15,7 +15,7 @@ describe('FoodList', () => {
 
         foodItemToAdd.id = 'test';
 
-        const addAction = { type: ADD_FOOD, payload: foodItemToAdd }
+        const addAction = { type: ADD_FOOD, payload: foodItemToAdd };
 
         const newState = foodItemsReducer(initialState, addAction);
 
